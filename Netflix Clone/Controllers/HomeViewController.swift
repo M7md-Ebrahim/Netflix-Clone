@@ -15,15 +15,13 @@ enum Sections: Int {
 }
 class HomeViewController: UIViewController {
     private var headerView: HeroHeaderView?
-
     private let feedTableView = {
         let table = UITableView(frame: .zero, style: .grouped)
         table.register(CollectionTableViewCell.self, forCellReuseIdentifier: CollectionTableViewCell.identifier)
         return table
     }()
-
     let sectionTitles = ["Trending Movies", "Trending TVs", "Popular", "Upcoming Movies", "Top Rated"]
-
+    private var movies: [[Movie]] = [[], [], [], [], []]
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -32,11 +30,11 @@ class HomeViewController: UIViewController {
         feedTableView.dataSource = self
         configureNavigationBar()
         configureHeaderView()
+        fetchData()
         headerView = HeroHeaderView(frame: CGRect(x: 0, y: 0, width: Int(view.bounds.width), height: 450))
         feedTableView.tableHeaderView = headerView
         navigationController?.hidesBarsOnSwipe = true
     }
-
     private func configureNavigationBar () {
         var netfilxLogo = UIImage(named: "logo")
         netfilxLogo = netfilxLogo?.withRenderingMode(.alwaysOriginal)
@@ -47,7 +45,6 @@ class HomeViewController: UIViewController {
         ]
         navigationController?.navigationBar.tintColor = .label
     }
-
     private func configureHeaderView() {
         API.shared.getTrendingMovies(complation: { [weak self] results in
             switch results {
@@ -59,12 +56,67 @@ class HomeViewController: UIViewController {
             }
         })
     }
+    private func fetchData() {
+        let dispatchGroup = DispatchGroup()
+        dispatchGroup.enter()
+        API.shared.getTrendingMovies { result in
+            switch result {
+            case .success(let results):
+                self.movies[0] = results
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+            dispatchGroup.leave()
+        }
+        dispatchGroup.enter()
+        API.shared.getTrendingTVs { result in
+            switch result {
+            case .success(let results):
+                self.movies[1] = results
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+            dispatchGroup.leave()
+        }
+        dispatchGroup.enter()
+        API.shared.getPopular { result in
+            switch result {
+            case .success(let results):
+                self.movies[2] = results
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+            dispatchGroup.leave()
+        }
+        dispatchGroup.enter()
+        API.shared.getUpcomingMovies { result in
+            switch result {
+            case .success(let results):
+                self.movies[3] = results
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+            dispatchGroup.leave()
+        }
+        dispatchGroup.enter()
+        API.shared.getTopRated { result in
+            switch result {
+            case .success(let results):
+                self.movies[4] = results
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+            dispatchGroup.leave()
+        }
+        dispatchGroup.notify(queue: .main) { [weak self] in
+            self?.feedTableView.reloadData()
+        }
+    }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         feedTableView.frame = view.bounds
     }
 }
-
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return sectionTitles.count
@@ -76,55 +128,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CollectionTableViewCell.identifier, for: indexPath)as?CollectionTableViewCell else {return UITableViewCell()}
         cell.delegate = self
-        switch indexPath.section {
-        case Sections.trendingMovies.rawValue:
-            API.shared.getTrendingMovies(complation: { results in
-                switch results {
-                case .success(let results):
-                    cell.configureSection(results)
-                case .failure(let error):
-                    print(error.localizedDescription)
-                }
-            })
-        case Sections.trendingTvs.rawValue:
-            API.shared.getTrendingTVs(complation: { results in
-                switch results {
-                case .success(let results):
-                    cell.configureSection(results)
-                case .failure(let error):
-                    print(error.localizedDescription)
-                }
-            })
-        case Sections.popular.rawValue:
-            API.shared.getPopular(complation: { results in
-                switch results {
-                case .success(let results):
-                    cell.configureSection(results)
-                case .failure(let error):
-                    print(error.localizedDescription)
-                }
-            })
-        case Sections.upcomingMovies.rawValue:
-            API.shared.getUpcomingMovies(complation: { results in
-                switch results {
-                case .success(let results):
-                    cell.configureSection(results)
-                case .failure(let error):
-                    print(error.localizedDescription)
-                }
-            })
-        case Sections.topRated.rawValue:
-            API.shared.getTopRated(complation: { results in
-                switch results {
-                case .success(let results):
-                    cell.configureSection(results)
-                case .failure(let error):
-                    print(error.localizedDescription)
-                }
-            })
-        default:
-            return UITableViewCell()
-        }
+        cell.configureSection(movies[indexPath.section])
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
