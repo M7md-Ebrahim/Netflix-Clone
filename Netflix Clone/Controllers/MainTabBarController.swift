@@ -14,17 +14,12 @@ class MainTabBarController: UITabBarController {
 
         let homeViewController = UINavigationController(rootViewController: HomeViewController())
         homeViewController.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"))
-        
         let upcomingViewController = UINavigationController(rootViewController: UpcomingViewController())
         upcomingViewController.tabBarItem = UITabBarItem(title: "Coming Soon", image: UIImage(systemName: "play.circle"), selectedImage: UIImage(systemName: "play.circle.fill"))
-        
         let searchViewController = UINavigationController(rootViewController: SearchViewController())
         searchViewController.tabBarItem = UITabBarItem(title: "Top Search", image: UIImage(systemName: "magnifyingglass.circle"), selectedImage: UIImage(systemName: "magnifyingglass.circle.fill"))
-        
-        let downloadsViewController = UINavigationController(rootViewController: DownloadsViewController())
-        downloadsViewController.tabBarItem = UITabBarItem(title: "Downloads", image: UIImage(systemName: "arrow.down.to.line"), tag: 0)
-                
-        setViewControllers([homeViewController, upcomingViewController, searchViewController, downloadsViewController], animated: true)
+        let watchlistViewController = UINavigationController(rootViewController: WatchlistViewController())
+        watchlistViewController.tabBarItem = UITabBarItem(title: "Watchlist", image: UIImage(systemName: "stopwatch"), selectedImage: UIImage(systemName: "stopwatch.fill"))
+        setViewControllers([homeViewController, upcomingViewController, searchViewController, watchlistViewController], animated: true)
     }
 }
-

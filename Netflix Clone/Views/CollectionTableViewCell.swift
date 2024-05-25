@@ -48,7 +48,7 @@ class CollectionTableViewCell: UITableViewCell {
         DataPersistence.shared.downloadMovie(movie: movies[indexPath.row]) { result in
             switch result {
             case .success:
-                NotificationCenter.default.post(name: NSNotification.Name("downloaded"), object: nil)
+                NotificationCenter.default.post(name: NSNotification.Name("Added"), object: nil)
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -82,7 +82,7 @@ extension CollectionTableViewCell: UICollectionViewDelegate, UICollectionViewDat
     }
     func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
         return UIContextMenuConfiguration(actionProvider: { [weak self] _ in
-            let downloadAction = UIAction(title: "Donwnload") { _ in
+            let downloadAction = UIAction(title: "Add To Watchlist", image: UIImage(systemName: "stopwatch")) { _ in
                 self?.download(indexPath)
             }
             return UIMenu(children: [downloadAction])

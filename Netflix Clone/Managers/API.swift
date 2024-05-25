@@ -95,7 +95,8 @@ class API {
     }
     func getQuery (_ query: String, complation: @escaping (Result<[Movie], APIError>) -> Void) {
         guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {return}
-        guard let url = URL(string: "\(Constants.baseURL)/3/search/movie?api_key=\(Constants.apiKey)&query=\(query)") else {return}
+        guard let url = URL(string: "\(Constants.baseURL)/3/search/movie?api_key=\(Constants.apiKey)&query=\(query)") else {
+            return}
         URLSession.shared.dataTask(with: url) { data, _, error in
             guard let data = data, error == nil else {return}
             do {
@@ -108,8 +109,10 @@ class API {
         .resume()
     }
     func getMovie (_ query: String, complation: @escaping (Result<YouTubeItem, APIError>) -> Void) {
-        guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {return}
-        guard let url = URL(string: "\(Constants.YoutubeBaseURL)q=\(query)trailer&key=\(Constants.youtubeAPIK)") else {return}
+        guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {
+            return}
+        guard let url = URL(string: "\(Constants.YoutubeBaseURL)q=\(query)trailer&key=\(Constants.youtubeAPIK)") else {
+            return}
         URLSession.shared.dataTask(with: url) { data, _, error in
             guard let data = data, error == nil else {return}
             do {

@@ -6,9 +6,9 @@
 //
 
 import UIKit
-class DownloadsViewController: UIViewController {
+class WatchlistViewController: UIViewController {
     private var movies: [MovieModel] = []
-    private let downloadTableView: UITableView = {
+    private let watchlistTableView: UITableView = {
         let tableView = UITableView()
         tableView.register(PlayTableViewCell.self, forCellReuseIdentifier: PlayTableViewCell.identifier)
         return tableView
@@ -16,14 +16,14 @@ class DownloadsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        title = "Downloads"
+        title = "Watchlist"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .always
-        downloadTableView.dataSource = self
-        downloadTableView.delegate = self
-        view.addSubview(downloadTableView)
+        watchlistTableView.dataSource = self
+        watchlistTableView.delegate = self
+        view.addSubview(watchlistTableView)
         navigationController?.navigationBar.tintColor = .label
-        NotificationCenter.default.addObserver(forName: NSNotification.Name("downloaded"), object: nil, queue: nil) { _ in
+        NotificationCenter.default.addObserver(forName: NSNotification.Name("Added"), object: nil, queue: nil) { _ in
             self.fetchData()
         }
         fetchData()
@@ -31,7 +31,7 @@ class DownloadsViewController: UIViewController {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        downloadTableView.frame = view.bounds
+        watchlistTableView.frame = view.bounds
     }
     private func fetchData() {
         DataPersistence.shared.fetchDownloeaded { [weak self] results in
@@ -39,7 +39,7 @@ class DownloadsViewController: UIViewController {
             case .success(let result):
                 self?.movies = result
                 DispatchQueue.main.async {
-                    self?.downloadTableView.reloadData()
+                    self?.watchlistTableView.reloadData()
                 }
             case .failure(let error):
                 print(error.localizedDescription)
@@ -49,14 +49,14 @@ class DownloadsViewController: UIViewController {
 }
 
 
-extension DownloadsViewController: UITableViewDelegate, UITableViewDataSource {
+extension WatchlistViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movies.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: PlayTableViewCell.identifier, for: indexPath) as? PlayTableViewCell else {return UITableViewCell()}
-        let cellInfo = CellInfo(titleName:(movies[indexPath.row].originalName ?? movies[indexPath.row].originalTitle) ?? "Unknown", posterURL: movies[indexPath.row].posterPath ?? "")
+        let cellInfo = CellInfo(titleName: (movies[indexPath.row].originalName ?? movies[indexPath.row].originalTitle) ?? "Unknown", posterURL: movies[indexPath.row].posterPath ?? "")
         cell.configureData(cellInfo)
         return cell
     }
