@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  Netflix Clone
+//  Netflix
 //
-//  Created by M7md  on 25/05/2024.
+//  Created by M7md  on 13/12/2023.
 //
 
 import UIKit
