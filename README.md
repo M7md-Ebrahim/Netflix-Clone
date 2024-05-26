@@ -32,12 +32,12 @@ Let's take a peek into the world of our Netflix Clone app:
     <td><strong>Watchlist</strong></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/M7md-Ebrahim/Netflix-Clone/assets/111511546/00587ea1-45fa-4202-a730-396faab2292b" alt="Home Screen" width="350"></td>
-    <td><img src="https://github.com/M7md-Ebrahim/Netflix-Clone/assets/111511546/e48db178-7c91-47c5-806d-f1d6330f47b3" alt="Upcoming Movies" width="300"></td>
-    <td><img src="https://github.com/M7md-Ebrahim/Netflix-Clone/assets/111511546/565cb232-5ad5-476a-833a-5340bcc1d70f" alt="Search Screen" width="350"></td>
-    <td><img src="https://github.com/M7md-Ebrahim/Netflix-Clone/assets/111511546/d13862b5-79f0-4d0a-b870-f3958b9fea4a" alt="Search Results" width="350"></td>
-    <td><img src="https://github.com/M7md-Ebrahim/Netflix-Clone/assets/111511546/5c0b40ed-5144-4bfe-af85-290f6883a7de" alt="Movie Details" width="350"></td>
-    <td><img src="https://github.com/M7md-Ebrahim/Netflix-Clone/assets/111511546/2757b764-d344-40ad-9fee-31418932b1e1" alt="Watchlist" width="320"></td>
+    <td><img src="https://github.com/M7md-Ebrahim/Netflix-Clone/assets/111511546/00587ea1-45fa-4202-a730-396faab2292b" alt="Home Screen" width="390"></td>
+    <td><img src="https://github.com/M7md-Ebrahim/Netflix-Clone/assets/111511546/e48db178-7c91-47c5-806d-f1d6330f47b3" alt="Upcoming Movies" width="320"></td>
+    <td><img src="https://github.com/M7md-Ebrahim/Netflix-Clone/assets/111511546/565cb232-5ad5-476a-833a-5340bcc1d70f" alt="Search Screen" width="390"></td>
+    <td><img src="https://github.com/M7md-Ebrahim/Netflix-Clone/assets/111511546/d13862b5-79f0-4d0a-b870-f3958b9fea4a" alt="Search Results" width="385"></td>
+    <td><img src="https://github.com/M7md-Ebrahim/Netflix-Clone/assets/111511546/5c0b40ed-5144-4bfe-af85-290f6883a7de" alt="Movie Details" width="400"></td>
+    <td><img src="https://github.com/M7md-Ebrahim/Netflix-Clone/assets/111511546/2757b764-d344-40ad-9fee-31418932b1e1" alt="Watchlist" width="345"></td>
   </tr>
 </table>
 
