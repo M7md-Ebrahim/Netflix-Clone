@@ -51,8 +51,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - [YouTube Data API](https://developers.google.com/youtube/v3) for movie trailers.
 - [Realm](https://realm.io/) for data persistence.
 - [SDWebImage](https://github.com/SDWebImage/SDWebImage) for image loading and caching.
-- [YouTube Playlist](https://www.youtube.com/playlist?list=YOUR_PLAYLIST_LINK) for the tutorial followed to create this project.
-
+  
 ## Author
 
 [M7md-Ebrahim](https://github.com/M7md-Ebrahim)
