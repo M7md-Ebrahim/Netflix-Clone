@@ -15,7 +15,7 @@ class MainTabBarController: UITabBarController {
         let homeViewController = UINavigationController(rootViewController: HomeViewController())
         homeViewController.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"))
         let upcomingViewController = UINavigationController(rootViewController: UpcomingViewController())
-        upcomingViewController.tabBarItem = UITabBarItem(title: "Coming Soon", image: UIImage(systemName: "play.circle"), selectedImage: UIImage(systemName: "play.circle.fill"))
+        upcomingViewController.tabBarItem = UITabBarItem(title: "Upcoming", image: UIImage(systemName: "play.circle"), selectedImage: UIImage(systemName: "play.circle.fill"))
         let searchViewController = UINavigationController(rootViewController: SearchViewController())
         searchViewController.tabBarItem = UITabBarItem(title: "Top Search", image: UIImage(systemName: "magnifyingglass.circle"), selectedImage: UIImage(systemName: "magnifyingglass.circle.fill"))
         let watchlistViewController = UINavigationController(rootViewController: WatchlistViewController())
@@ -23,3 +23,4 @@ class MainTabBarController: UITabBarController {
         setViewControllers([homeViewController, upcomingViewController, searchViewController, watchlistViewController], animated: true)
     }
 }
+#imageLiteral(resourceName: "Simulator Screenshot - iPhone 15 Pro - 2024-05-27 at 01.11.01.png")
