@@ -23,4 +23,3 @@ class MainTabBarController: UITabBarController {
         setViewControllers([homeViewController, upcomingViewController, searchViewController, watchlistViewController], animated: true)
     }
 }
-#imageLiteral(resourceName: "Simulator Screenshot - iPhone 15 Pro - 2024-05-27 at 01.11.01.png")

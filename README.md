@@ -16,39 +16,30 @@ This project is a clone of the popular Netflix application built using Swift and
 
 Watch a brief demonstration of the Netflix Clone app in action:
 
-<video width="320" height="240" controls>
-  <source src="/Users/mhmdebrahim/Desktop/vide.mov" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+[![Watch a brief demonstration of the Netflix Clone app in action:]](https://github.com/M7md-Ebrahim/Netflix-Clone/assets/111511546/22a6f7e0-326d-4a64-b153-af7633066450)
 
 ## Screenshots
 
 Let's take a peek into the world of our Netflix Clone app:
 
-### Home Screen
-![Home Screen](path_to_home_screen_screenshot)
-
-*Welcome to the gateway of cinematic adventures!*
-
-### Upcoming Movies
-![Upcoming Movies](path_to_upcoming_movies_screenshot)
-
-*Stay ahead of the curve with the hottest upcoming releases.*
-
-### Search Screen
-![Search Screen](path_to_search_screen_screenshot)
-
-*Find your favorites with ease using our powerful search feature.*
-
-### Movie Details
-![Movie Details](path_to_movie_details_screenshot)
-
-*Dive deep into the world of your selected movie with comprehensive details.*
-
-### Watchlist
-![Watchlist](path_to_watchlist_screenshot)
-
-*Curate your personal collection and never miss a flick.*
+<table>
+  <tr>
+    <td><strong>Home Screen</strong></td>
+    <td><strong>Upcoming Movies</strong></td>
+    <td><strong>Search Screen</strong></td>
+    <td><strong>Search Results</strong></td>
+    <td><strong>Movie Details</strong></td>
+    <td><strong>Watchlist</strong></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/M7md-Ebrahim/Netflix-Clone/assets/111511546/00587ea1-45fa-4202-a730-396faab2292b" alt="Home Screen" width="350"></td>
+    <td><img src="https://github.com/M7md-Ebrahim/Netflix-Clone/assets/111511546/e48db178-7c91-47c5-806d-f1d6330f47b3" alt="Upcoming Movies" width="300"></td>
+    <td><img src="https://github.com/M7md-Ebrahim/Netflix-Clone/assets/111511546/565cb232-5ad5-476a-833a-5340bcc1d70f" alt="Search Screen" width="350"></td>
+    <td><img src="https://github.com/M7md-Ebrahim/Netflix-Clone/assets/111511546/d13862b5-79f0-4d0a-b870-f3958b9fea4a" alt="Search Results" width="350"></td>
+    <td><img src="https://github.com/M7md-Ebrahim/Netflix-Clone/assets/111511546/5c0b40ed-5144-4bfe-af85-290f6883a7de" alt="Movie Details" width="350"></td>
+    <td><img src="https://github.com/M7md-Ebrahim/Netflix-Clone/assets/111511546/2757b764-d344-40ad-9fee-31418932b1e1" alt="Watchlist" width="320"></td>
+  </tr>
+</table>
 
 ## License
 
@@ -64,10 +55,8 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Author
 
-[Your Name](https://github.com/your-github-username)
+[M7md-Ebrahim](https://github.com/M7md-Ebrahim)
 
 Enjoy watching your favorite movies with this Netflix Clone app! If you have any questions or suggestions, feel free to open an issue or submit a pull request.
-
-You can compare the original project [here](https://github.com/amrhossam96/Netflix-clone.git) with my enhanced version [here](https://github.com/M7md-Ebrahim/Netflix-Clone.git).
 
 --- 
