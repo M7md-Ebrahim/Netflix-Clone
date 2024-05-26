@@ -17,7 +17,7 @@ This project is a clone of the popular Netflix application built using Swift and
 Watch a brief demonstration of the Netflix Clone app in action:
 
 <video width="320" height="240" controls>
-  <source src="/Users/mhmdebrahim/Desktop/vide.mov" type="video/mp4">
+  <source src="/Users/mhmdebrahim/Desktop/vide.mov" type="video/mov">
   Your browser does not support the video tag.
 </video>
 
