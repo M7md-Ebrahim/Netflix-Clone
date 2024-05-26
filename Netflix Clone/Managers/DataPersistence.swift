@@ -29,7 +29,7 @@ class DataPersistence {
         movieModel.voteAverage = movie.voteAverage
         do {
             let realm = try Realm()
-            if realm.objects(MovieModel.self).filter("originalName == %@ AND originalTitle == %@", movie.originalName , movie.originalTitle).isEmpty {
+            if realm.objects(MovieModel.self).filter("originalName == %@ AND originalTitle == %@", movie.originalName, movie.originalTitle).isEmpty {
                 try realm.write {
                     realm.add(movieModel)
                 }
